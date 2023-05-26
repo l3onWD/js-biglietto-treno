@@ -16,7 +16,11 @@ console.log('JS OK!')
 /* *****************************************
 * INIT
 * *****************************************/
-//console.log('=============== INIT =================');
+console.log('=============== INIT =================');
+
+//###### Trip Variables ######\\
+const pricePerKm = 0.21;
+
 
 
 /* *****************************************
@@ -35,6 +39,12 @@ const passengerAgeInput = prompt('Fornisci l\'età del passeggero', 8);
 // Log data
 console.log(`Lunghezza viaggio: ${tripLengthInput} KM.`)
 console.log(`Età passeggero: ${passengerAgeInput} anni.`)
+
+//###### Calculate standard ticket price ######\\
+let ticketPrice = tripLengthInput * pricePerKm;
+
+// Log result
+console.log('Prezzo biglietto standard: €' + ticketPrice.toFixed(2));
 
 
 
