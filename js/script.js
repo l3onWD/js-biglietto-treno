@@ -2,7 +2,7 @@
 Bonus
 [X] Stampare il prezzo finale sulla pagina invece che in console
 [X] Aggiungere, sempre in pagina, altre informazioni, come il prezzo prima dello sconto e l'età e il chilometraggio indicati dall'utente
-Validazione
+[X] Validazione
 Abbellimenti vari con CSS
 */
 
@@ -71,10 +71,11 @@ console.log(`Età passeggero: ${passengerAgeInput} anni.`)
 
 //###### Validation ######\\
 let isValid = true;
-let errorMsg = 'Dati inseriti non validi';
+let errorMsg;
 
 if(isNaN(tripLengthInput) || isNaN(passengerAgeInput) || tripLengthInput < 1 || passengerAgeInput < 1) {
     isValid = false;
+    errorMsg = 'Dati inseriti non validi';
 }
 
 
