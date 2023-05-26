@@ -39,14 +39,16 @@ console.log(`Sconto "Over 65": Sconto del ${overAgeDiscount.toFixed(2)}% se hai 
 
 const tripLengthElem = document.getElementById('trip-length');
 const passengerAgeElem = document.getElementById('passenger-age');
+const ticketBaseElem = document.getElementById('ticket-base-price');
 const discountElem = document.getElementById('discount');
-const ticketPriceElem = document.getElementById('ticket-price');
+const ticketFinalPriceElem = document.getElementById('ticket-final-price');
 
 // Log
 console.log('Trip Length Element:', tripLengthElem);
 console.log('Passenger Age Element:', passengerAgeElem);
+console.log('Ticket Base Price Element:', ticketBaseElem);
 console.log('Discount Element:', discountElem);
-console.log('Price Element:', ticketPriceElem);
+console.log('Ticket Price Element:', ticketFinalPriceElem);
 
 
 /* *****************************************
@@ -68,27 +70,30 @@ console.log(`Età passeggero: ${passengerAgeInput} anni.`)
 
 
 //###### Calculate standard ticket price ######\\
-let ticketPrice = tripLengthInput * pricePerKm;
+const ticketBasePrice = tripLengthInput * pricePerKm;
 
 // Log result
-console.log('Prezzo biglietto standard: €' + ticketPrice.toFixed(2));
+console.log('Prezzo biglietto standard: €' + ticketBasePrice.toFixed(2));
 
 
-//###### Check ticket reductions ######\\
+//###### Calculate ticket reductions ######\\
+// Final price var
+let ticketFinalPrice = ticketBasePrice;
+
 // Discount string
 let discountMsg = 'Nessuno Sconto applicato';
 
 // Under age check
 if (passengerAgeInput < underAgeValue) {
 
-    ticketPrice *= (1 - underAgeDiscount);
+    ticketFinalPrice *= (1 - underAgeDiscount);
     discountMsg = `Applicato lo sconto "Minorenni" del ${underAgeDiscount * 100}%.`;
 
 } 
 // Over age check
 else if (passengerAgeInput >= overAgeValue) {
 
-    ticketPrice *= (1 - overAgeDiscount);
+    ticketFinalPrice *= (1 - overAgeDiscount);
     discountMsg = `Applicato lo sconto "Over 65" del ${overAgeDiscount * 100}%.`;
 }
 
@@ -97,14 +102,15 @@ console.log(discountMsg);
 
 
 //###### Log final price ######\\
-console.log('Il prezzo finale del biglietto è di €' + ticketPrice.toFixed(2));
+console.log('Il prezzo finale del biglietto è di €' + ticketFinalPrice.toFixed(2));
 
 
 //###### Update DOM elements ######\\
 tripLengthElem.innerText = tripLengthInput + ' KM';
 passengerAgeElem.innerText = passengerAgeInput + ' anni';
+ticketBaseElem.innerText = '€' + ticketBasePrice.toFixed(2);
 discountElem.innerText = discountMsg;
-ticketPriceElem.innerText = '€' + ticketPrice.toFixed(2);
+ticketFinalPriceElem.innerText = '€' + ticketFinalPrice.toFixed(2);
 
 
 console.log('=============== DONE =================');
