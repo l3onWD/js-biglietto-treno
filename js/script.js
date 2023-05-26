@@ -35,9 +35,17 @@ console.log(`Sconto Minorenni: Sconto del ${underAgeDiscount.toFixed(2)}% se hai
 console.log(`Sconto "Over 65": Sconto del ${overAgeDiscount.toFixed(2)}% se hai un età superiore o uguale a ${overAgeValue} anni.`);
 
 
-//###### Elements ######\\
-// Ticket price element
+//###### DOM Elements ######\\
+
+const tripLengthElem = document.getElementById('trip-length');
+const passengerAgeElem = document.getElementById('passenger-age');
+const discountElem = document.getElementById('discount');
 const ticketPriceElem = document.getElementById('ticket-price');
+
+// Log
+console.log('Trip Length Element:', tripLengthElem);
+console.log('Passenger Age Element:', passengerAgeElem);
+console.log('Discount Element:', discountElem);
 console.log('Price Element:', ticketPriceElem);
 
 
@@ -88,15 +96,15 @@ else if (passengerAgeInput >= overAgeValue) {
 console.log(discountMsg);
 
 
-//###### Insert final price ######\\
-// Create message
-const finalMsg = 'Il prezzo finale del biglietto è di €' + ticketPrice.toFixed(2);
+//###### Log final price ######\\
+console.log('Il prezzo finale del biglietto è di €' + ticketPrice.toFixed(2));
 
-// Insert message
-ticketPriceElem.innerText = finalMsg;
 
-// Log on console
-console.log(finalMsg);
+//###### Update DOM elements ######\\
+tripLengthElem.innerText = tripLengthInput + ' KM';
+passengerAgeElem.innerText = passengerAgeInput + ' anni';
+discountElem.innerText = discountMsg;
+ticketPriceElem.innerText = '€' + ticketPrice.toFixed(2);
 
 
 console.log('=============== DONE =================');
