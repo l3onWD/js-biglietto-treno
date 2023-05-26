@@ -34,6 +34,12 @@ console.log('Prezzo del biglietto per KM: €' + pricePerKm);
 console.log(`Sconto Minorenni: Sconto del ${underAgeDiscount.toFixed(2)}% se hai un età inferiore a ${underAgeValue} anni.`);
 console.log(`Sconto "Over 65": Sconto del ${overAgeDiscount.toFixed(2)}% se hai un età superiore o uguale a ${overAgeValue} anni.`);
 
+
+//###### Elements ######\\
+// Ticket price element
+const ticketPriceElem = document.getElementById('ticket-price');
+
+
 /* *****************************************
 * LOGIC
 * *****************************************/
