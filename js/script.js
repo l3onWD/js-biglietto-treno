@@ -1,7 +1,7 @@
 /*
 Bonus
 [X] Stampare il prezzo finale sulla pagina invece che in console
-Aggiungere, sempre in pagina, altre informazioni, come il prezzo prima dello sconto e l'età e il chilometraggio indicati dall'utente
+[X] Aggiungere, sempre in pagina, altre informazioni, come il prezzo prima dello sconto e l'età e il chilometraggio indicati dall'utente
 Validazione
 Abbellimenti vari con CSS
 */
@@ -59,58 +59,74 @@ console.log('=============== LOGIC =================');
 
 //###### Retrieve user data ######\\
 // Get trip length
-const tripLengthInput = prompt('Fornisci la lunghezza del viaggio in KM', 10);
+const tripLengthInput = parseInt(prompt('Fornisci la lunghezza del viaggio in KM', 10));
 
 // Get passenger age
-const passengerAgeInput = prompt('Fornisci l\'età del passeggero', 8);
+const passengerAgeInput = parseInt(prompt('Fornisci l\'età del passeggero', 8));
 
 // Log data
 console.log(`Lunghezza viaggio: ${tripLengthInput} KM.`)
 console.log(`Età passeggero: ${passengerAgeInput} anni.`)
 
 
-//###### Calculate standard ticket price ######\\
-const ticketBasePrice = tripLengthInput * pricePerKm;
+//###### Validation ######\\
+let isValid = true;
+let errorMsg = 'Dati inseriti non validi';
 
-// Log result
-console.log('Prezzo biglietto standard: €' + ticketBasePrice.toFixed(2));
-
-
-//###### Calculate ticket reductions ######\\
-// Final price var
-let ticketFinalPrice = ticketBasePrice;
-
-// Discount string
-let discountMsg = 'Nessuno Sconto applicato';
-
-// Under age check
-if (passengerAgeInput < underAgeValue) {
-
-    ticketFinalPrice *= (1 - underAgeDiscount);
-    discountMsg = `Applicato lo sconto "Minorenni" del ${underAgeDiscount * 100}%.`;
-
-} 
-// Over age check
-else if (passengerAgeInput >= overAgeValue) {
-
-    ticketFinalPrice *= (1 - overAgeDiscount);
-    discountMsg = `Applicato lo sconto "Over 65" del ${overAgeDiscount * 100}%.`;
+if(isNaN(tripLengthInput) || isNaN(passengerAgeInput) || tripLengthInput < 1 || passengerAgeInput < 1) {
+    isValid = false;
 }
 
-// Log discount
-console.log(discountMsg);
+
+if(!isValid) {
+    //###### Log errore ######\\
+    console.log(errorMsg);
+
+} else {
+
+    //###### Calculate standard ticket price ######\\
+    const ticketBasePrice = tripLengthInput * pricePerKm;
+
+    // Log result
+    console.log('Prezzo biglietto standard: €' + ticketBasePrice.toFixed(2));
 
 
-//###### Log final price ######\\
-console.log('Il prezzo finale del biglietto è di €' + ticketFinalPrice.toFixed(2));
+    //###### Calculate ticket reductions ######\\
+    // Final price var
+    let ticketFinalPrice = ticketBasePrice;
+
+    // Discount string
+    let discountMsg = 'Nessuno Sconto applicato';
+
+    // Under age check
+    if (passengerAgeInput < underAgeValue) {
+
+        ticketFinalPrice *= (1 - underAgeDiscount);
+        discountMsg = `Applicato lo sconto "Minorenni" del ${underAgeDiscount * 100}%.`;
+
+    } 
+    // Over age check
+    else if (passengerAgeInput >= overAgeValue) {
+
+        ticketFinalPrice *= (1 - overAgeDiscount);
+        discountMsg = `Applicato lo sconto "Over 65" del ${overAgeDiscount * 100}%.`;
+    }
+
+    // Log discount
+    console.log(discountMsg);
 
 
-//###### Update DOM elements ######\\
-tripLengthElem.innerText = tripLengthInput + ' KM';
-passengerAgeElem.innerText = passengerAgeInput + ' anni';
-ticketBaseElem.innerText = '€' + ticketBasePrice.toFixed(2);
-discountElem.innerText = discountMsg;
-ticketFinalPriceElem.innerText = '€' + ticketFinalPrice.toFixed(2);
+    //###### Log final price ######\\
+    console.log('Il prezzo finale del biglietto è di €' + ticketFinalPrice.toFixed(2));
 
+
+    //###### Update DOM elements ######\\
+    tripLengthElem.innerText = tripLengthInput + ' KM';
+    passengerAgeElem.innerText = passengerAgeInput + ' anni';
+    ticketBaseElem.innerText = '€' + ticketBasePrice.toFixed(2);
+    discountElem.innerText = discountMsg;
+    ticketFinalPriceElem.innerText = '€' + ticketFinalPrice.toFixed(2);
+
+}
 
 console.log('=============== DONE =================');
