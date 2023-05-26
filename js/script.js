@@ -27,8 +27,12 @@ const underAgeValue = 18;
 const underAgeDiscount = 0.20;
 
 const overAgeValue = 65;
-const overAgeDiscount = 0.40; 
+const overAgeDiscount = 0.40;
 
+// Log Data
+console.log('Prezzo del biglietto per KM: €' + pricePerKm);
+console.log(`Sconto Minorenni: Sconto del ${underAgeDiscount.toFixed(2)}% se hai un età inferiore a ${underAgeValue} anni.`);
+console.log(`Sconto "Over 65": Sconto del ${overAgeDiscount.toFixed(2)}% se hai un età superiore o uguale a ${overAgeValue} anni.`);
 
 /* *****************************************
 * LOGIC
@@ -76,6 +80,9 @@ else if (passengerAgeInput >= overAgeValue) {
 // Log discount
 console.log(discountMsg);
 
+
+//###### Log final price ######\\
+console.log('Il prezzo finale del biglietto è di €' + ticketPrice.toFixed(2));
 
 
 console.log('=============== DONE =================');
