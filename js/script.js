@@ -1,6 +1,6 @@
 /*
 Bonus
-Stampare il prezzo finale sulla pagina invece che in console
+[X] Stampare il prezzo finale sulla pagina invece che in console
 Aggiungere, sempre in pagina, altre informazioni, come il prezzo prima dello sconto e l'età e il chilometraggio indicati dall'utente
 Validazione
 Abbellimenti vari con CSS
@@ -38,6 +38,7 @@ console.log(`Sconto "Over 65": Sconto del ${overAgeDiscount.toFixed(2)}% se hai 
 //###### Elements ######\\
 // Ticket price element
 const ticketPriceElem = document.getElementById('ticket-price');
+console.log('Price Element:', ticketPriceElem);
 
 
 /* *****************************************
@@ -87,8 +88,15 @@ else if (passengerAgeInput >= overAgeValue) {
 console.log(discountMsg);
 
 
-//###### Log final price ######\\
-console.log('Il prezzo finale del biglietto è di €' + ticketPrice.toFixed(2));
+//###### Insert final price ######\\
+// Create message
+const finalMsg = 'Il prezzo finale del biglietto è di €' + ticketPrice.toFixed(2);
+
+// Insert message
+ticketPriceElem.innerText = finalMsg;
+
+// Log on console
+console.log(finalMsg);
 
 
 console.log('=============== DONE =================');
