@@ -16,9 +16,7 @@ console.log('JS OK!')
 /* *****************************************
 * INIT
 * *****************************************/
-console.log('=============== INIT =================');
-
-//###### --- ######\\
+//console.log('=============== INIT =================');
 
 
 /* *****************************************
@@ -27,5 +25,17 @@ console.log('=============== INIT =================');
 console.log('=============== LOGIC =================');
 
 
+//###### Retrieve User Data ######\\
+// Get trip length
+const tripLengthInput = prompt('Fornisci la lunghezza del viaggio in KM', 10);
 
-console.log('=============== DONE =================');
+// Get passenger age
+const passengerAgeInput = prompt('Fornisci l\'età del passeggero', 8);
+
+// Log data
+console.log(`Lunghezza viaggio: ${tripLengthInput} KM.`)
+console.log(`Età passeggero: ${passengerAgeInput} anni.`)
+
+
+
+//console.log('=============== DONE =================');
