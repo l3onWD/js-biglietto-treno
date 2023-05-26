@@ -18,9 +18,16 @@ console.log('JS OK!')
 * *****************************************/
 console.log('=============== INIT =================');
 
-//###### Trip Variables ######\\
+//###### Ticket Data ######\\
+// Ticket price per KM
 const pricePerKm = 0.21;
 
+// Price Reductions
+const underAgeValue = 18;
+const underAgeDiscount = 0.20;
+
+const overAgeValue = 65;
+const overAgeDiscount = 0.40; 
 
 
 /* *****************************************
@@ -29,7 +36,7 @@ const pricePerKm = 0.21;
 console.log('=============== LOGIC =================');
 
 
-//###### Retrieve User Data ######\\
+//###### Retrieve user data ######\\
 // Get trip length
 const tripLengthInput = prompt('Fornisci la lunghezza del viaggio in KM', 10);
 
@@ -40,6 +47,7 @@ const passengerAgeInput = prompt('Fornisci l\'età del passeggero', 8);
 console.log(`Lunghezza viaggio: ${tripLengthInput} KM.`)
 console.log(`Età passeggero: ${passengerAgeInput} anni.`)
 
+
 //###### Calculate standard ticket price ######\\
 let ticketPrice = tripLengthInput * pricePerKm;
 
@@ -47,5 +55,27 @@ let ticketPrice = tripLengthInput * pricePerKm;
 console.log('Prezzo biglietto standard: €' + ticketPrice.toFixed(2));
 
 
+//###### Check ticket reductions ######\\
+// Discount string
+let discountMsg = 'Nessuno Sconto applicato';
 
-//console.log('=============== DONE =================');
+// Under age check
+if (passengerAgeInput < underAgeValue) {
+
+    ticketPrice *= (1 - underAgeDiscount);
+    discountMsg = `Applicato lo sconto "Minorenni" del ${underAgeDiscount * 100}%.`;
+
+} 
+// Over age check
+else if (passengerAgeInput >= overAgeValue) {
+
+    ticketPrice *= (1 - overAgeDiscount);
+    discountMsg = `Applicato lo sconto "Over 65" del ${overAgeDiscount * 100}%.`;
+}
+
+// Log discount
+console.log(discountMsg);
+
+
+
+console.log('=============== DONE =================');
