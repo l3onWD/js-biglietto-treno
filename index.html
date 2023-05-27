@@ -40,11 +40,11 @@
                         <ul>
                             <li class="d-flex justify-content-between py-1">
                                 <span>Lunghezza Tragitto</span>
-                                <strong>9999 KM</strong>
+                                <strong><span id="trip-length"></span> KM</strong>
                             </li>
                             <li class="d-flex justify-content-between py-1">
                                 <span>Età Passeggero</span>
-                                <strong>999 Anni</strong>
+                                <strong><span id="passenger-age"></span> Anni</strong>
                             </li>
                         </ul>
                     </li>
@@ -62,15 +62,15 @@
                             </li>
                             <li class="d-flex justify-content-between py-1">
                                 <span>Costo Biglietto</span>
-                                <span>€9999.99</span>
+                                <span>€<span id="ticket-base-price"></span></span>
                             </li>
                             <li class="d-flex justify-content-between py-1">
                                 <span>Sconto Minorenni</span>
-                                <span>-20%</span>
+                                <span id="underage-discount">-</span>
                             </li>
                             <li class="d-flex justify-content-between py-1">
                                 <span>Sconto Over 65</span>
-                                <span>-</span>
+                                <span id="overage-discount">-</span>
                             </li>
                         </ul>
                     </li>
@@ -78,7 +78,7 @@
                     <!-- Totale -->
                     <li class="border-top d-flex justify-content-between py-3">
                         <strong>Totale</strong>
-                        <strong class="text-success fs-4">€9999.99</strong>
+                        <strong class="text-success fs-4">€<span id="ticket-final-price"></span></strong>
                     </li>
 
                 </ul>
