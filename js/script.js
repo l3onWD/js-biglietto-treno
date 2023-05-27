@@ -31,6 +31,7 @@ console.log(`Sconto "Over 65": Sconto del ${overAgeDiscount.toFixed(2)}% se hai 
 //###### DOM Elements ######\\
 const tripLengthElem = document.getElementById('trip-length');
 const passengerAgeElem = document.getElementById('passenger-age');
+const ticketKmElem = document.getElementById('ticket-km-price');
 const ticketBaseElem = document.getElementById('ticket-base-price');
 const discountElem = document.getElementById('discount');
 const ticketFinalPriceElem = document.getElementById('ticket-final-price');
@@ -39,6 +40,7 @@ const ticketFinalPriceElem = document.getElementById('ticket-final-price');
 console.log('=============== Elementi DOM =================');
 console.log('Trip Length Element:', tripLengthElem);
 console.log('Passenger Age Element:', passengerAgeElem);
+console.log('Ticket KM Price Element:', ticketKmElem);
 console.log('Ticket Base Price Element:', ticketBaseElem);
 console.log('Discount Element:', discountElem);
 console.log('Ticket Price Element:', ticketFinalPriceElem);
@@ -117,6 +119,7 @@ if(!isValid) {
     //###### Update DOM elements ######\\
     tripLengthElem.innerText = tripLengthInput + ' KM';
     passengerAgeElem.innerText = passengerAgeInput + ' Anni';
+    ticketKmElem.innerText = '€' + pricePerKm.toFixed(2) + ' per KM';
     ticketBaseElem.innerText = '€' + ticketBasePrice.toFixed(2);
     discountElem.innerText = discountMsg;
     ticketFinalPriceElem.innerText = '€' + ticketFinalPrice.toFixed(2);
