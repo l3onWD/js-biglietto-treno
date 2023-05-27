@@ -66,19 +66,39 @@ console.log(`Età passeggero: ${passengerAgeInput} anni.`)
 
 //###### Validation ######\\
 let isValid = true;
-let errorMsg;
+let errorMsg = '';
+const errorElem = '<span class="text-danger">inserisci un numero maggiore di 0!</span>';
 
-if(isNaN(tripLengthInput) || isNaN(passengerAgeInput) || tripLengthInput < 1 || passengerAgeInput < 1) {
+// Trip length input check
+if(isNaN(tripLengthInput) || tripLengthInput < 1) {
+
     isValid = false;
-    errorMsg = 'Dati inseriti non validi';
+
+    // Update error log message
+    errorMsg += 'Lunghezza viaggio non valido: inserisci un numero maggiore di 0!\n';
+
+    // Update DOM element
+    tripLengthElem.innerHTML = errorElem;
+}
+
+// Age input check
+if(isNaN(passengerAgeInput) || passengerAgeInput < 1) {
+    isValid = false;
+
+    // Create error message
+    const msg = 'Anni passeggero non validi: inserisci un numero maggiore di 0!';
+
+    // Update error log message
+    errorMsg += 'Anni passeggero non validi: inserisci un numero maggiore di 0!\n';
+
+    // Update DOM element
+    passengerAgeElem.innerHTML = errorElem;
 }
 
 
 if(!isValid) {
-    //###### Log errore ######\\
+    //###### Log error ######\\
     console.log(errorMsg);
-    tripLengthElem.innerHTML = `<span class="h5 text-danger">${errorMsg}</span`;
-    passengerAgeElem.innerHTML = `<span class="h5 text-danger">${errorMsg}</span`;
 
 } else {
 
