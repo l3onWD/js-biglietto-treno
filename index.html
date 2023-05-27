@@ -24,60 +24,70 @@
         <div class="container">
 
             <!-- Wrapper -->
-            <div class="wrapper p-3 mt-5">
+            <div class="wrapper row p-3 mt-5">
 
-                <!-- Title -->
-                <h2 class="mb-4">Riepilogo Costo</h2>
+                <!-- Left Column -->
+                <div class="col-12 col-lg-6">
 
-                <!-- Checkout Container -->
-                <ul>
-                    <!-- Data section -->
-                    <li class="border-top py-3">
-                        <!-- Section Title -->
-                        <h4>Dati Inseriti:</h4>
+                    <!-- Title -->
+                    <h2 class="mb-4">Riepilogo Costo</h2>
 
-                        <!-- Fields List -->
-                        <ul>
-                            <li class="d-flex justify-content-between py-1">
-                                <span>Lunghezza Tragitto</span>
-                                <strong id="trip-length">-</strong>
-                            </li>
-                            <li class="d-flex justify-content-between py-1">
-                                <span>Età Passeggero</span>
-                                <strong id="passenger-age">-</strong>
-                            </li>
-                        </ul>
-                    </li>
+                    <!-- Checkout Container -->
+                    <ul>
+                        <!-- Data section -->
+                        <li class="border-top py-3">
+                            <!-- Section Title -->
+                            <h4>Dati Inseriti:</h4>
 
-                    <!-- Cost section -->
-                    <li class="border-top py-3">
-                        <!-- Section Title -->
-                        <h4>Costo:</h4>
+                            <!-- Fields List -->
+                            <ul>
+                                <li class="d-flex justify-content-between py-1">
+                                    <span>Lunghezza Tragitto</span>
+                                    <strong id="trip-length">-</strong>
+                                </li>
+                                <li class="d-flex justify-content-between py-1">
+                                    <span>Età Passeggero</span>
+                                    <strong id="passenger-age">-</strong>
+                                </li>
+                            </ul>
+                        </li>
 
-                        <!-- Fields List -->
-                        <ul>
-                            <li class="d-flex justify-content-between py-1">
-                                <span>Prezzo Base</span>
-                                <span id="ticket-km-price">-</span>
-                            </li>
-                            <li class="d-flex justify-content-between py-1">
-                                <span>Costo Biglietto</span>
-                                <span id="ticket-base-price">-</span>
-                            </li>
-                            <li class="d-flex justify-content-between py-1">
-                                <span>Sconto:</span>
-                                <span id="discount">-</span>
-                            </li>
-                        </ul>
-                    </li>
+                        <!-- Cost section -->
+                        <li class="border-top py-3">
+                            <!-- Section Title -->
+                            <h4>Costo:</h4>
 
-                    <!-- Totale -->
-                    <li class="border-top d-flex justify-content-between py-3">
-                        <strong>Totale</strong>
-                        <strong id="ticket-final-price" class="text-success fs-4">-</strong>
-                    </li>
+                            <!-- Fields List -->
+                            <ul>
+                                <li class="d-flex justify-content-between py-1">
+                                    <span>Prezzo Base</span>
+                                    <span id="ticket-km-price">-</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-1">
+                                    <span>Costo Biglietto</span>
+                                    <span id="ticket-base-price">-</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-1">
+                                    <span>Sconto:</span>
+                                    <span id="discount">-</span>
+                                </li>
+                            </ul>
+                        </li>
 
-                </ul>
+                        <!-- Totale -->
+                        <li class="border-top d-flex justify-content-between py-3">
+                            <strong>Totale</strong>
+                            <strong id="ticket-final-price" class="text-success fs-4">-</strong>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-12 col-lg-6 text-center">
+                    <img src="img/train-tickets.svg" alt="Train Tickets" class="img-fluid d-none d-lg-inline">
+                </div>
 
             </div>
         </div>
