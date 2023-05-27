@@ -77,6 +77,8 @@ if(isNaN(tripLengthInput) || isNaN(passengerAgeInput) || tripLengthInput < 1 || 
 if(!isValid) {
     //###### Log errore ######\\
     console.log(errorMsg);
+    tripLengthElem.innerHTML = `<span class="h5 text-danger">${errorMsg}</span`;
+    passengerAgeElem.innerHTML = `<span class="h5 text-danger">${errorMsg}</span`;
 
 } else {
 
